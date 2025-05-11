@@ -1,0 +1,110 @@
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Putuj S Nama - Kontakt</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    const cijene = {
+      "pariz": 600,
+      "rim": 550,
+      "prag": 400,
+      "budimpesta": 400,
+      "bec": 580,
+      "oslo": 800,
+      "london": 600,
+      "barcelona": 580,
+      "amsterdam": 730,
+      "dublin": 550
+    };
+
+    function provjeriAkciju() {
+      const grad = document.getElementById("grad").value;
+      const akcija = document.getElementById("akcija");
+      if (grad === "pariz" || grad === "rim") {
+        akcija.textContent = "Posebna ponuda: 20% popusta na putovanje!";
+      } else {
+        akcija.textContent = "";
+      }
+      izracunajCijenu();
+    }
+
+    function izracunajCijenu() {
+      const grad = document.getElementById("grad").value;
+      const noci = parseInt(document.getElementById("noci").value) || 0;
+      const broj = parseInt(document.getElementById("broj").value) || 1;
+      let osnovnaCijena = cijene[grad] || 0;
+      let dodatak = noci * 50;
+      let ukupno = (osnovnaCijena + dodatak) * broj;
+
+      if (grad === "pariz" || grad === "rim") {
+        ukupno *= 0.8; // 20% popusta
+      }
+
+      document.getElementById("ukupnaCijena").textContent = `Ukupna cijena: ${ukupno.toFixed(2)} EUR`;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.svg" alt="Logo">
+    <h1>Putuj S Nama</h1>
+    <nav>
+      <ul>
+        <li><a href="1.html">Početna</a></li>
+        <li><a href="2.html">Ponuda</a></li>
+        <li><a href="3.html">Cjenik</a></li>
+        <li class="active"><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Kontaktirajte nas</h2>
+    <form>
+      <label for="ime">Ime:</label>
+      <input type="text" id="ime" name="ime" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="grad">Odaberite grad:</label>
+      <select id="grad" name="grad" required onchange="provjeriAkciju()">
+        <option value="pariz">Pariz</option>
+        <option value="rim">Rim</option>
+        <option value="prag">Prag</option>
+        <option value="budimpesta">Budimpešta</option>
+        <option value="bec">Beč</option>
+        <option value="oslo">Oslo</option>
+        <option value="london">London</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="amsterdam">Amsterdam</option>
+        <option value="dublin">Dublin</option>
+      </select>
+
+      <p id="akcija" style="color: green; font-weight: bold;"></p>
+
+      <label for="noci">Koliko noći dodatno (uz 3 početne):</label>
+      <input type="number" id="noci" name="noci" min="0" max="14" value="0" onchange="izracunajCijenu()">
+
+      <label for="broj">Broj osoba:</label>
+      <input type="number" id="broj" name="broj" min="1" max="10" value="1" onchange="izracunajCijenu()">
+
+      <label for="kartica">Broj kartice za plaćanje:</label>
+      <input type="text" id="kartica" name="kartica" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+
+      <label for="poruka">Poruka:</label>
+      <textarea id="poruka" name="poruka" required></textarea>
+
+      <p id="ukupnaCijena" style="font-weight: bold;"></p>
+
+      <button type="submit">Pošalji</button>
+    </form>
+  </main>
+  <footer>
+    <p>&copy; 2025 Putuj S Nama. Sva prava pridržana.</p>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", izracunajCijenu);
+  </script>
+</body>
+</html>

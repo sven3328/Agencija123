@@ -1,0 +1,87 @@
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Putuj S Nama - Cjenik</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function prikaziDetalje(element, cijena, prijevoz) {
+      const detalji = element.querySelector(".detalji");
+      detalji.innerHTML = `Cijena: ${cijena} EUR<br>Prijevoz: ${prijevoz}`;
+      detalji.style.display = detalji.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.svg" alt="Logo">
+    <h1>Putuj S Nama</h1>
+    <nav>
+      <ul>
+        <li><a href="1.html">Početna</a></li>
+        <li><a href="2.html">Ponuda</a></li>
+        <li class="active"><a href="3.html">Cjenik</a></li>
+        <li><a href="4.html">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h2>Odaberite destinaciju</h2>
+    <div class="destinacije">
+      <div class="destinacija" onclick="prikaziDetalje(this, 400, 'Autobus')">
+        <img src="prag.jpg" alt="Prag">
+        <div class="grad-ime">Prag</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 400, 'Autobus')">
+        <img src="budimpesta.jpg" alt="Budimpešta">
+        <div class="grad-ime">Budimpešta</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 550, 'Avion')">
+        <img src="RIM.jpg" alt="Rim">
+        <div class="grad-ime">Rim</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 550, 'Avion')">
+        <img src="dublin.jpg" alt="Dublin">
+        <div class="grad-ime">Dublin</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 580, 'Autobus')">
+        <img src="bec.jpg" alt="Beč">
+        <div class="grad-ime">Beč</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 580, 'Avion')">
+        <img src="barcelona.jpg" alt="Barcelona">
+        <div class="grad-ime">Barcelona</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 600, 'Avion')">
+        <img src="paris.jpg" alt="Pariz">
+        <div class="grad-ime">Pariz</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 600, 'Avion')">
+        <img src="london.jpg" alt="London">
+        <div class="grad-ime">London</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 730, 'Avion')">
+        <img src="amsterdam.jpg" alt="Amsterdam">
+        <div class="grad-ime">Amsterdam</div>
+        <div class="detalji"></div>
+      </div>
+      <div class="destinacija" onclick="prikaziDetalje(this, 800, 'Avion')">
+        <img src="oslo.jpg" alt="Oslo">
+        <div class="grad-ime">Oslo</div>
+        <div class="detalji"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Putuj S Nama. Sva prava pridržana.</p>
+  </footer>
+</body>
+</html>
